@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/iSkate6/static/css/main.5ef6cb05.css",
-    "main.js": "/iSkate6/static/js/main.e5bcf0fe.js",
+    "main.js": "/iSkate6/static/js/main.621e80e7.js",
     "static/js/787.21d8826d.chunk.js": "/iSkate6/static/js/787.21d8826d.chunk.js",
     "static/media/post-video-2.mp4": "/iSkate6/static/media/post-video-2.dc627228b1453aadb831.mp4",
     "static/media/post-video-1.mp4": "/iSkate6/static/media/post-video-1.5b879139b3a4ab2ab65c.mp4",
@@ -35,11 +35,11 @@
     "static/media/derek king profile pic.jpg": "/iSkate6/static/media/derek king profile pic.6aade5c2c5ddcc1b6912.jpg",
     "index.html": "/iSkate6/index.html",
     "main.5ef6cb05.css.map": "/iSkate6/static/css/main.5ef6cb05.css.map",
-    "main.e5bcf0fe.js.map": "/iSkate6/static/js/main.e5bcf0fe.js.map",
+    "main.621e80e7.js.map": "/iSkate6/static/js/main.621e80e7.js.map",
     "787.21d8826d.chunk.js.map": "/iSkate6/static/js/787.21d8826d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5ef6cb05.css",
-    "static/js/main.e5bcf0fe.js"
+    "static/js/main.621e80e7.js"
   ]
 }
