@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import SignIn from './SignIn'; // Import the SignIn component
 
 const SignupContainer = styled.div`
   max-width: 400px;
@@ -70,57 +71,61 @@ const Signup = () => {
   };
 
   return (
-    <SignupContainer>
-      <Title>Sign Up for iSkate</Title>
-      <Form onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label htmlFor="username">Username</Label>
-          <Input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="email">Email</Label>
-          <Input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="password">Password</Label>
-          <Input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="confirmPassword">Confirm Password</Label>
-          <Input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-        <Button type="submit">Sign Up</Button>
-      </Form>
-    </SignupContainer>
+    <div>
+      <SignupContainer>
+        <Title>Sign Up for iSkate</Title>
+        <Form onSubmit={handleSubmit}>
+          <FormGroup>
+            <Label htmlFor="username">Username</Label>
+            <Input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="signupEmail">Email</Label>
+            <Input
+              type="email"
+              id="signupEmail" // Unique ID for email input
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="signupPassword">Password</Label>
+            <Input
+              type="password"
+              id="signupPassword" // Unique ID for password input
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="confirmPassword">Confirm Password</Label>
+            <Input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </FormGroup>
+          <Button type="submit">Sign Up</Button>
+        </Form>
+      </SignupContainer>
+      <SignIn />
+    </div>
   );
 };
 
 export default Signup;
+

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { ReactBingmaps } from 'react-bingmaps';
-import './SkateParks.css';
+import styled from 'styled-components'; // Import styled-components
 
 // Import the images
 import skateparkOfBaltimoreImage from '../images/skatepark_of_baltimore.jpg';
@@ -10,6 +10,58 @@ import jakesSkateparkImage from '../images/jakes_skatepark.jpg';
 import sandyHillsSkateParkImage from '../images/sandy_hills_skate_park.jpg';
 import lansdowneBowlImage from '../images/lansdowne_bowl.jpg';
 import rashFieldImage from '../images/rash_field.jpg';
+
+// Styled components
+const MainContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+const SearchContainer = styled.div`
+  margin-bottom: 20px;
+  text-align: center;
+`;
+
+const SearchInput = styled.input`
+  width: 80%;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const SearchButton = styled.button`
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+`;
+
+const MapContainer = styled.div`
+  height: 300px;
+`;
+
+const SkateParkCard = styled.div`
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+`;
+
+const SkateParkName = styled.h3`
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+`;
+
+const ImageContainer = styled.div`
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+`;
 
 const SkateParks = () => {
   // State for search input
@@ -107,50 +159,57 @@ const SkateParks = () => {
     // Add more skate park data here if needed
   ];
 
+  useEffect(() => {
+    // This code will run when the component mounts or when the state changes
+    // For example, you can use it to fetch data or perform side effects
+    // If you need to fetch data, use a library like Axios or the Fetch API
+  }, []); // Pass an empty array as the second argument to run this effect once when the component mounts
+
+
   return (
-    <div className="skate-parks-container">
+    <MainContainer>
       <h2>Skate Parks</h2>
 
       {/* Search by Location */}
-      <div className="search-container">
+      <SearchContainer>
         <h3>Search by Location</h3>
-        <input
+        <SearchInput
           type="text"
           placeholder="Search by Location"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <button onClick={handleLocationSearch}>Search</button>
-      </div>
+        <SearchButton onClick={handleLocationSearch}>Search</SearchButton>
+      </SearchContainer>
 
       {/* Display the Bing Map */}
-      <div className="map-container">
+      <MapContainer>
         <ReactBingmaps
           bingmapKey="Asqx1MbD8hLv3ugrdHmtEuYQWBaaApcaefHB13saDewk0e8IPw6On8JSeNXfo1SV" // Your Bing Maps API Key
           center={mapCenter} // Use the mapCenter state as the initial center
           mapTypeId={'road'}
           zoom={12} // Adjust the initial zoom level as needed
         />
-      </div>
+      </MapContainer>
 
       {/* Divs for Skate Park Information */}
       <div className="skate-park-list">
         {skateParks.map((park, index) => (
-          <div key={index} className="skate-park-card">
-            <h3>{park.name}</h3>
-            <div className="image-container">
+          <SkateParkCard key={index}>
+            <SkateParkName>{park.name}</SkateParkName>
+            <ImageContainer>
               <img src={park.imageUrl} alt={`${park.name} Skate Park`} />
-            </div>
+            </ImageContainer>
             <p>Rating: {park.rating}</p>
             <p>Reviews: {park.reviews}</p>
             <p>Type: {park.type}</p>
             <p>Location: {park.location}</p>
             <p>Description: {park.description}</p>
-            <button className='btn2' onClick={() => handleVisitClick(park.location)}>Visit</button>
-          </div>
+            <SearchButton onClick={() => handleVisitClick(park.location)}>Visit</SearchButton>
+          </SkateParkCard>
         ))}
       </div>
-    </div>
+    </MainContainer>
   );
 };
 
